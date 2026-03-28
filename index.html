@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Le Bon Bon Grill | West African Cuisine | Lisle, IL | (630) 822-4086</title>
+<meta name="description" content="Authentic West African & Ivorian street food in Lisle, IL. Halal. Beef brochettes, grilled lamb, alloco, Bon Bon Juice & more. 908 Ogden Ave. Call (630) 822-4086."/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#04050a;
+  --ink2:#080c16;
+  --ink3:#0d1222;
+  --white:#f8f9ff;
+  --dim:#a0a8c0;
+  --blue:#2563eb;
+  --electric:#38bdf8;
+  --gold:#f59e0b;
+  --gold2:#d97706;
+  --amber:#fb923c;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{background:var(--ink);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;cursor:none;}
+
+#cur{position:fixed;width:10px;height:10px;background:var(--electric);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:screen;}
+#cur-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(56,189,248,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s;animation:ring-pulse 3s ease-in-out infinite;}
+@keyframes ring-pulse{0%,100%{border-color:rgba(56,189,248,.3)}50%{border-color:rgba(56,189,248,.7)}}
+
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.028;pointer-events:none;z-index:9997;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.2rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent;}
+nav.scrolled{background:rgba(4,5,10,.88);backdrop-filter:blur(20px);border-color:rgba(245,158,11,.12);}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;letter-spacing:.04em;text-decoration:none;color:var(--white);}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none;}
+.nav-links a{color:var(--dim);font-size:.83rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{background:var(--gold)!important;color:var(--ink)!important;padding:.55rem 1.4rem!important;font-size:.78rem!important;letter-spacing:.08em!important;text-transform:uppercase!important;font-weight:700!important;transition:background .2s,transform .15s!important;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)!important;}
+.nav-cta:hover{background:var(--amber)!important;transform:translateY(-1px)!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all .3s;}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(4,5,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(245,158,11,.12);z-index:499;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:16px 24px;color:var(--dim);font-size:.9rem;font-weight:500;border-bottom:1px solid rgba(255,255,255,.04);text-decoration:none;transition:color .2s;}
+.mobile-menu a:hover{color:var(--white);}
+
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;perspective:800px;}
+.grid-plane{position:absolute;inset:0;background-image:linear-gradient(rgba(245,158,11,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(245,158,11,.06) 1px,transparent 1px);background-size:60px 60px;transform:rotateX(60deg) translateZ(-100px) scale(2.5);transform-origin:center bottom;animation:grid-drift 20s linear infinite;}
+@keyframes grid-drift{from{background-position:0 0}to{background-position:0 60px}}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:orb-float 12s ease-in-out infinite;}
+.orb1{width:600px;height:600px;background:radial-gradient(circle,rgba(245,158,11,.14),transparent 70%);top:-200px;right:-100px;}
+.orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,.16),transparent 70%);bottom:-100px;left:-50px;animation-delay:-5s;}
+.orb3{width:300px;height:300px;background:radial-gradient(circle,rgba(251,146,60,.1),transparent 70%);top:40%;right:20%;animation-delay:-9s;}
+@keyframes orb-float{0%,100%{transform:translateY(0) scale(1)}33%{transform:translateY(-30px) scale(1.04)}66%{transform:translateY(20px) scale(.97)}}
+.scanlines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(4,5,10,.15) 3px,rgba(4,5,10,.15) 4px);pointer-events:none;z-index:2;}
+
+.hero-inner{position:relative;z-index:3;max-width:1300px;margin:0 auto;padding:0 3rem;padding-top:7rem;display:grid;grid-template-columns:1fr 420px;gap:5rem;align-items:center;}
+
+.hero-tag{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.5rem;padding:.35rem 1rem;border:1px solid rgba(245,158,11,.4);background:rgba(245,158,11,.08);color:var(--gold);font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;animation:blink 1.5s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+h1.hero-h1{font-family:'Syne',sans-serif;font-size:clamp(3.2rem,6vw,6rem);font-weight:800;line-height:.95;letter-spacing:-.03em;margin-bottom:1.8rem;}
+.h1-line1{display:block;color:var(--white);}
+.h1-line2{display:block;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.3);font-style:italic;font-family:'Playfair Display',serif;font-weight:400;}
+.h1-line3{display:block;background:linear-gradient(135deg,var(--gold),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+.hero-desc{font-size:1rem;color:var(--dim);line-height:1.8;max-width:460px;margin-bottom:2.5rem;font-weight:300;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-primary{display:inline-flex;align-items:center;gap:.7rem;background:var(--gold);color:var(--ink);padding:1rem 2rem;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:none;cursor:none;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(245,158,11,.45);}
+.btn-ghost{display:inline-flex;align-items:center;gap:.7rem;background:transparent;color:var(--white);padding:1rem 2rem;font-family:'Syne',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.2);cursor:none;transition:all .2s;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);background:rgba(245,158,11,.06);}
+
+.hero-stats{display:flex;gap:2.5rem;}
+.hstat{display:flex;flex-direction:column;position:relative;padding-left:1rem;}
+.hstat::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:linear-gradient(to bottom,var(--gold),var(--amber));}
+.hstat-num{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--white);line-height:1;}
+.hstat-label{font-size:.68rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-top:3px;}
+
+.hero-card{background:rgba(255,255,255,.03);border:1px solid rgba(245,158,11,.2);padding:2.5rem;position:relative;overflow:hidden;backdrop-filter:blur(10px);}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--amber),transparent);}
+.hero-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(245,158,11,.09),transparent 60%);pointer-events:none;}
+.card-corner{position:absolute;width:16px;height:16px;border-color:var(--gold);border-style:solid;}
+.card-corner.tl{top:8px;left:8px;border-width:1px 0 0 1px;}
+.card-corner.tr{top:8px;right:8px;border-width:1px 1px 0 0;}
+.card-corner.bl{bottom:8px;left:8px;border-width:0 0 1px 1px;}
+.card-corner.br{bottom:8px;right:8px;border-width:0 1px 1px 0;}
+.card-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-weight:600;}
+.card-icon{font-size:2.5rem;margin-bottom:1rem;display:block;}
+.card-headline{font-family:'Playfair Display',serif;font-size:1.7rem;line-height:1.2;margin-bottom:1.5rem;color:var(--white);}
+.card-headline em{font-style:italic;color:var(--dim);font-weight:400;}
+.card-features{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-bottom:2rem;}
+.card-features li{display:flex;align-items:center;gap:.8rem;font-size:.85rem;color:rgba(255,255,255,.75);}
+.card-features li::before{content:'';width:6px;height:6px;background:var(--gold);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);flex-shrink:0;}
+.card-cta{display:block;text-align:center;padding:.9rem;background:linear-gradient(135deg,var(--gold),var(--amber));color:var(--ink);font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:opacity .2s,transform .2s;}
+.card-cta:hover{opacity:.9;transform:translateY(-1px);}
+
+.ticker{padding:.8rem 0;overflow:hidden;background:linear-gradient(135deg,var(--gold2),var(--gold));position:relative;border-top:1px solid rgba(251,146,60,.3);border-bottom:1px solid rgba(251,146,60,.3);}
+.ticker-track{display:flex;animation:ticker 28s linear infinite;white-space:nowrap;}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:0 2.5rem;color:var(--ink);display:flex;align-items:center;gap:1rem;}
+.ticker-dot{width:4px;height:4px;background:var(--ink);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);}
+
+.proof-strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(245,158,11,.1);background:rgba(8,12,22,.8);}
+.proof-item{padding:2rem 1.5rem;text-align:center;border-right:1px solid rgba(245,158,11,.08);position:relative;overflow:hidden;transition:background .3s;}
+.proof-item:last-child{border-right:none;}
+.proof-item:hover{background:rgba(245,158,11,.05);}
+.proof-item::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .4s;}
+.proof-item:hover::before{transform:scaleX(1);}
+.proof-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--white),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.3rem;}
+.proof-label{font-size:.72rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;font-weight:500;}
+
+.section{padding:7rem 3rem;}
+.section-wrap{max-width:1300px;margin:0 auto;}
+.eyebrow{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;}
+.eyebrow-line{width:24px;height:1px;background:var(--gold);}
+.eyebrow span{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,4.5vw,4rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.2rem;}
+.section-title em{font-style:italic;font-family:'Playfair Display',serif;font-weight:400;color:var(--dim);}
+.section-sub{font-size:.95rem;color:var(--dim);max-width:540px;line-height:1.75;font-weight:300;}
+
+/* MENU */
+.menu-section{background:var(--ink2);padding:7rem 3rem;position:relative;overflow:hidden;}
+.menu-section::before{content:'HALAL';position:absolute;bottom:-2rem;right:-1rem;font-family:'Syne',sans-serif;font-size:20vw;font-weight:800;color:rgba(245,158,11,.04);pointer-events:none;line-height:1;letter-spacing:-.05em;}
+.menu-header{max-width:1300px;margin:0 auto;margin-bottom:4rem;}
+.menu-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.menu-card{position:relative;overflow:hidden;background:var(--ink3);border:1px solid rgba(245,158,11,.1);transition:border-color .3s,transform .4s,box-shadow .4s;}
+.menu-card:hover{border-color:rgba(245,158,11,.35);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 40px rgba(245,158,11,.06);}
+.menu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--amber),transparent);transform:scaleX(0);transition:transform .5s;z-index:1;}
+.menu-card:hover::before{transform:scaleX(1);}
+.menu-img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.22,1,.36,1),filter .5s;filter:brightness(.82) saturate(.9);}
+.menu-card:hover .menu-img{transform:scale(1.05);filter:brightness(.95) saturate(1.1);}
+.menu-badge{position:absolute;top:14px;left:14px;padding:.28rem .8rem;font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--gold);color:var(--ink);z-index:2;}
+.menu-body{padding:1.5rem 1.8rem;}
+.menu-name{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.4rem;color:var(--white);}
+.menu-desc{font-size:.82rem;color:var(--dim);line-height:1.65;margin-bottom:1rem;}
+.menu-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.menu-price{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--gold);}
+.menu-tags{display:flex;gap:.35rem;flex-wrap:wrap;}
+.menu-tag{padding:.2rem .6rem;font-size:.58rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.18);color:var(--dim);}
+
+/* HOW */
+.how-section{padding:7rem 3rem;background:var(--ink);}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;}
+.steps-grid::before{content:'';position:absolute;top:40px;left:calc(33.33% + 20px);right:calc(33.33% + 20px);height:1px;background:linear-gradient(90deg,var(--gold),var(--amber));z-index:0;}
+.step-card{padding:2.5rem;border:1px solid rgba(245,158,11,.1);margin:0 8px;background:rgba(8,12,22,.6);position:relative;overflow:hidden;transition:border-color .3s,background .3s,transform .4s;}
+.step-card:hover{border-color:rgba(245,158,11,.38);background:rgba(245,158,11,.04);transform:translateY(-6px);}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--amber));transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.22,1,.36,1);}
+.step-card:hover::before{transform:scaleX(1);}
+.step-num{font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;line-height:1;color:rgba(245,158,11,.09);margin-bottom:1rem;transition:color .3s;}
+.step-card:hover .step-num{color:rgba(245,158,11,.2);}
+.step-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:.8rem;color:var(--white);}
+.step-desc{font-size:.88rem;color:var(--dim);line-height:1.7;}
+.step-icon{width:44px;height:44px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.28);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1.2rem;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:background .3s;}
+.step-card:hover .step-icon{background:rgba(245,158,11,.22);}
+
+/* SIGNATURE CATEGORIES */
+.sig-section{padding:7rem 3rem;background:var(--ink2);position:relative;}
+.sig-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(245,158,11,.06);}
+.sig-card{padding:3rem;background:var(--ink2);position:relative;overflow:hidden;transition:background .3s;}
+.sig-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at bottom right,rgba(245,158,11,.07),transparent 60%);opacity:0;transition:opacity .4s;}
+.sig-card:hover{background:rgba(13,18,34,.9);}
+.sig-card:hover::after{opacity:1;}
+.sig-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),var(--amber));transform:scaleY(0);transform-origin:top;transition:transform .5s cubic-bezier(.22,1,.36,1);}
+.sig-card:hover::before{transform:scaleY(1);}
+.sig-num{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.2em;color:var(--gold);margin-bottom:1rem;display:block;}
+.sig-icon{font-size:2.2rem;margin-bottom:1.2rem;display:block;}
+.sig-name{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--white);margin-bottom:.8rem;letter-spacing:-.01em;}
+.sig-desc{font-size:.88rem;color:var(--dim);line-height:1.75;margin-bottom:1.5rem;}
+.sig-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
+.sig-tag{padding:.25rem .7rem;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.16);color:var(--dim);}
+
+/* HALAL BADGE */
+.guarantee-section{padding:7rem 3rem;background:var(--ink);position:relative;overflow:hidden;}
+.guarantee-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(245,158,11,.07),transparent);}
+.guarantee-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;position:relative;z-index:1;}
+.g-badge-wrap{display:flex;justify-content:center;}
+.g-badge{width:220px;height:220px;position:relative;flex-shrink:0;}
+.g-badge-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(245,158,11,.3);animation:badge-spin 25s linear infinite;}
+.g-badge-ring2{position:absolute;inset:12px;border-radius:50%;border:1px solid rgba(251,146,60,.2);animation:badge-spin 18s linear infinite reverse;}
+.g-badge-core{position:absolute;inset:24px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--amber));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 60px rgba(245,158,11,.35);}
+@keyframes badge-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.g-badge-num{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--ink);line-height:1;}
+.g-badge-text{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(4,5,10,.72);margin-top:.2rem;}
+.g-title{font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.2rem;}
+.g-desc{font-size:.95rem;color:var(--dim);line-height:1.8;margin-bottom:2rem;}
+
+/* REVIEWS */
+.reviews-section{padding:7rem 3rem;background:var(--ink2);position:relative;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:4rem;}
+.rcard{background:rgba(8,12,22,.8);border:1px solid rgba(245,158,11,.1);padding:2rem;position:relative;overflow:hidden;transition:border-color .3s,transform .4s,box-shadow .4s;}
+.rcard:hover{border-color:rgba(245,158,11,.3);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.rcard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--amber),transparent);transform:scaleX(0);transition:transform .5s;}
+.rcard:hover::before{transform:scaleX(1);}
+.rcard-quote{font-family:'Playfair Display',serif;font-size:3rem;color:rgba(245,158,11,.22);line-height:1;margin-bottom:.5rem;}
+.rcard-stars{color:var(--gold);font-size:.9rem;letter-spacing:2px;margin-bottom:1rem;}
+.rcard-text{font-size:.88rem;color:rgba(255,255,255,.62);line-height:1.75;margin-bottom:1.5rem;font-style:italic;}
+.rcard-footer{display:flex;align-items:center;gap:.8rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.06);}
+.rcard-av{width:36px;height:36px;background:linear-gradient(135deg,var(--gold),var(--amber));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:var(--ink);clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);}
+.rcard-name{font-size:.85rem;font-weight:600;color:var(--white);}
+.rcard-type{font-size:.7rem;color:var(--dim);}
+
+/* FAQ */
+.faq-section{padding:7rem 3rem;background:var(--ink);}
+.faq-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+.faq-item{border-top:1px solid rgba(245,158,11,.1);padding:1.4rem 0;}
+.faq-item:last-child{border-bottom:1px solid rgba(245,158,11,.1);}
+.faq-q{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;cursor:pointer;font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--white);transition:color .2s;}
+.faq-q:hover{color:var(--gold);}
+.faq-icon{color:var(--gold);font-size:1.1rem;flex-shrink:0;transition:transform .3s;}
+.faq-icon.open{transform:rotate(45deg);}
+.faq-a{font-size:.88rem;color:var(--dim);line-height:1.75;margin-top:.8rem;display:none;}
+.faq-visual-card{background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.16);padding:3rem;position:relative;overflow:hidden;}
+.faq-visual-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--amber),transparent);}
+.fq-big{font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;color:rgba(245,158,11,.09);line-height:1;margin-bottom:.5rem;}
+.fq-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;margin-bottom:.8rem;}
+.fq-desc{font-size:.88rem;color:var(--dim);line-height:1.7;margin-bottom:2rem;}
+.fq-contact{display:flex;flex-direction:column;gap:.8rem;}
+.fq-contact-item{display:flex;align-items:center;gap:.8rem;font-size:.9rem;color:var(--white);}
+.fq-contact-icon{width:36px;height:36px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+
+/* CTA */
+.cta-section{padding:9rem 3rem;position:relative;overflow:hidden;text-align:center;}
+.cta-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--ink2) 0%,var(--ink) 50%,var(--ink2) 100%);}
+.cta-orb{position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.09),transparent 60%);top:50%;left:50%;transform:translate(-50%,-50%);animation:cta-pulse 6s ease-in-out infinite;}
+@keyframes cta-pulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.6}50%{transform:translate(-50%,-50%) scale(1.1);opacity:1}}
+.cta-inner{position:relative;z-index:1;max-width:800px;margin:0 auto;}
+.cta-eyebrow{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.5rem;padding:.3rem 1rem;border:1px solid rgba(245,158,11,.3);color:var(--gold);font-size:.65rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;}
+.cta-title{font-family:'Syne',sans-serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:800;line-height:1.0;letter-spacing:-.03em;margin-bottom:1.2rem;}
+.cta-title em{font-style:italic;font-family:'Playfair Display',serif;font-weight:400;color:var(--dim);}
+.cta-sub{font-size:1rem;color:var(--dim);margin-bottom:3rem;line-height:1.7;}
+.cta-btns{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;}
+.cta-note{font-size:.75rem;color:var(--dim);margin-top:1.5rem;opacity:.6;letter-spacing:.05em;}
+
+footer{border-top:1px solid rgba(245,158,11,.1);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:var(--ink);}
+.footer-logo{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:.04em;color:var(--white);}
+.footer-logo span{color:var(--gold);}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:.75rem;color:var(--dim);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-size:.75rem;color:var(--dim);}
+
+/* ANIMATIONS */
+.a-up,.a-left,.a-right,.a-scale,.a-fade,.a-clip,.a-word{opacity:1;transform:none;}
+.animated .a-up{opacity:0;transform:translateY(50px);}
+.animated .a-up.in{opacity:1;transform:none;}
+.animated .a-left{opacity:0;transform:translateX(-50px);}
+.animated .a-left.in{opacity:1;transform:none;}
+.animated .a-right{opacity:0;transform:translateX(50px);}
+.animated .a-right.in{opacity:1;transform:none;}
+.animated .a-scale{opacity:0;transform:scale(.85);}
+.animated .a-scale.in{opacity:1;transform:scale(1);}
+.animated .a-fade{opacity:0;}
+.animated .a-fade.in{opacity:1;}
+.animated .a-clip{opacity:0;clip-path:inset(0 100% 0 0);}
+.animated .a-clip.in{opacity:1;clip-path:inset(0 0% 0 0);}
+.animated .a-word{opacity:0;transform:translateY(80%) skewY(8deg);}
+.animated .a-word.in{opacity:1;transform:none;}
+.a-up,.a-left,.a-right,.a-scale{transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);}
+.a-fade{transition:opacity 1s ease;}
+.a-clip{transition:opacity .15s,clip-path .9s cubic-bezier(.22,1,.36,1);}
+.a-word{transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.d1{transition-delay:.08s!important;}.d2{transition-delay:.16s!important;}.d3{transition-delay:.24s!important;}
+.d4{transition-delay:.32s!important;}.d5{transition-delay:.40s!important;}.d6{transition-delay:.48s!important;}
+
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem;}
+  .hero-card{display:none;}
+  .proof-strip{grid-template-columns:repeat(2,1fr);}
+  .guarantee-inner{grid-template-columns:1fr;gap:3rem;}
+  .faq-inner{grid-template-columns:1fr;}
+  .faq-visual-card{display:none;}
+  .reviews-grid{grid-template-columns:1fr 1fr;}
+  .steps-grid{grid-template-columns:1fr;gap:1rem;}
+  .steps-grid::before{display:none;}
+  .sig-grid{grid-template-columns:1fr;}
+  .menu-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero-inner{padding:0 1.5rem;padding-top:5rem;}
+  .section,.menu-section,.how-section,.sig-section,.guarantee-section,.reviews-section,.faq-section,.cta-section{padding:5rem 1.5rem;}
+  .proof-strip{grid-template-columns:repeat(2,1fr);}
+  .reviews-grid{grid-template-columns:1fr;}
+  .cta-btns{flex-direction:column;align-items:center;}
+  footer{padding:1.5rem;flex-direction:column;text-align:center;}
+  .menu-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Le Bon Bon <span>Grill</span></a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="tel:6308224086" class="nav-cta">Order Now →</a></li>
+  </ul>
+  <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mm">
+  <a href="#menu">Menu</a>
+  <a href="#experience">Experience</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#faq">FAQ</a>
+  <a href="tel:6308224086">📞 (630) 822-4086</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"><div class="grid-plane"></div></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="scanlines"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag a-fade d1">Chicago's Best West African Cuisine</div>
+      <h1 class="hero-h1">
+        <span class="h1-line1 a-word d1">Taste of</span>
+        <span class="h1-line2 a-word d2">West Africa,</span>
+        <span class="h1-line3 a-word d3">Right Here.</span>
+      </h1>
+      <p class="hero-desc a-up d3">Le Bon Bon Grill brings authentic Ivorian street food and home-cooked West African flavors to Lisle, IL. 100% Halal. Bold. Unforgettable.</p>
+      <div class="hero-btns a-up d4">
+        <a href="tel:6308224086" class="btn-primary"><span>📞 Call to Order</span><span>→</span></a>
+        <a href="#menu" class="btn-ghost">View Menu</a>
+      </div>
+      <div class="hero-stats a-up d5">
+        <div class="hstat"><div class="hstat-num">100%</div><div class="hstat-label">Halal</div></div>
+        <div class="hstat"><div class="hstat-num">4.8★</div><div class="hstat-label">Rated</div></div>
+        <div class="hstat"><div class="hstat-num">Mon–Sat</div><div class="hstat-label">11AM–9PM</div></div>
+      </div>
+    </div>
+    <div class="hero-card a-right d3">
+      <div class="card-corner tl"></div><div class="card-corner tr"></div>
+      <div class="card-corner bl"></div><div class="card-corner br"></div>
+      <div class="card-label">Why Le Bon Bon Grill</div>
+      <span class="card-icon">🍢</span>
+      <div class="card-headline">West African comfort<br><em>done right.</em></div>
+      <ul class="card-features">
+        <li>100% Halal certified</li>
+        <li>Authentic Ivorian recipes</li>
+        <li>Dine-in, takeout &amp; curbside</li>
+        <li>Vegan &amp; gluten-free options</li>
+        <li>Signature Bon Bon Juice</li>
+        <li>Owner-cooked, every time</li>
+      </ul>
+      <a href="tel:6308224086" class="card-cta">Call: (630) 822-4086 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker"><div class="ticker-track" id="ticker"></div></div>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-item a-up d1"><div class="proof-num">100%</div><div class="proof-label">Halal Certified</div></div>
+  <div class="proof-item a-up d2"><div class="proof-num">4.8★</div><div class="proof-label">Google Rating</div></div>
+  <div class="proof-item a-up d3"><div class="proof-num">Ivorian</div><div class="proof-label">Authentic Cuisine</div></div>
+  <div class="proof-item a-up d4"><div class="proof-num">$$</div><div class="proof-label">DoorDash &amp; Uber Eats</div></div>
+</div>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="menu-header">
+    <div class="eyebrow a-fade"><div class="eyebrow-line"></div><span>Our Menu</span></div>
+    <div class="section-title a-clip">Bold flavors, <em>every plate.</em></div>
+    <p class="section-sub a-up">Every dish is made fresh, cooked to order. Scroll to discover the flavors of Côte d'Ivoire right here in Lisle, IL.</p>
+  </div>
+  <div class="menu-grid">
+
+    <div class="menu-card a-up d1">
+      <img class="menu-img" src="https://images.pexels.com/photos/5718025/pexels-photo-5718025.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Beef Brochette" loading="lazy"/>
+      <div class="menu-badge">⭐ Fan Favorite</div>
+      <div class="menu-body">
+        <div class="menu-name">Beef Brochette</div>
+        <div class="menu-desc">Tender beef skewers marinated in our signature sauce, grilled with fresh onions &amp; tomatoes. Served with jollof rice, fries, or home salad.</div>
+        <div class="menu-footer"><div class="menu-price">$22.99</div><div class="menu-tags"><span class="menu-tag">Halal</span><span class="menu-tag">Grilled</span></div></div>
+      </div>
+    </div>
+
+    <div class="menu-card a-up d2">
+      <img class="menu-img" src="https://images.pexels.com/photos/6210747/pexels-photo-6210747.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Chicken Brochette" loading="lazy"/>
+      <div class="menu-badge">🔥 Popular</div>
+      <div class="menu-body">
+        <div class="menu-name">Chicken Brochette</div>
+        <div class="menu-desc">4 chicken kebabs marinated in our rich signature sauce, grilled with fresh onions &amp; tomatoes. Served with jollof rice, fries, or home salad.</div>
+        <div class="menu-footer"><div class="menu-price">$22.00</div><div class="menu-tags"><span class="menu-tag">Halal</span><span class="menu-tag">Grilled</span></div></div>
+      </div>
+    </div>
+
+    <div class="menu-card a-up d3">
+      <img class="menu-img" src="https://images.pexels.com/photos/11220949/pexels-photo-11220949.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Lamb Chops" loading="lazy"/>
+      <div class="menu-badge">🥩 Signature</div>
+      <div class="menu-body">
+        <div class="menu-name">Grilled Lamb Chops</div>
+        <div class="menu-desc">Juicy halal lamb chops, seasoned and grilled to perfection. A crowd favorite and a must-order — especially as part of the Bon Bon Sampler.</div>
+        <div class="menu-footer"><div class="menu-price">Ask Us</div><div class="menu-tags"><span class="menu-tag">Halal</span><span class="menu-tag">Grilled</span></div></div>
+      </div>
+    </div>
+
+    <div class="menu-card a-up d1">
+      <img class="menu-img" src="https://images.pexels.com/photos/5718071/pexels-photo-5718071.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Chicken Wings" loading="lazy"/>
+      <div class="menu-badge">🍗 Best Seller</div>
+      <div class="menu-body">
+        <div class="menu-name">Chicken Wings</div>
+        <div class="menu-desc">Freshly fried naked wings marinated in special seasoning. Optional spicy sauce. Served with jollof rice, fries, or home salad.</div>
+        <div class="menu-footer"><div class="menu-price">$15.99 / $29.99</div><div class="menu-tags"><span class="menu-tag">10 pcs</span><span class="menu-tag">20 pcs</span></div></div>
+      </div>
+    </div>
+
+    <div class="menu-card a-up d2">
+      <img class="menu-img" src="https://images.pexels.com/photos/3296279/pexels-photo-3296279.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Fried Tilapia" loading="lazy"/>
+      <div class="menu-body">
+        <div class="menu-name">Fried Tilapia</div>
+        <div class="menu-desc">Fresh tilapia seasoned and fried crisp to perfection — crunchy outside, soft and moist inside. Served with jollof rice, fries, or home salad.</div>
+        <div class="menu-footer"><div class="menu-price">See Menu</div><div class="menu-tags"><span class="menu-tag">Halal</span><span class="menu-tag">Crispy</span></div></div>
+      </div>
+    </div>
+
+    <div class="menu-card a-up d3">
+      <img class="menu-img" src="https://images.pexels.com/photos/5638531/pexels-photo-5638531.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Alloco Fried Plantains" loading="lazy"/>
+      <div class="menu-badge">🌿 Vegan</div>
+      <div class="menu-body">
+        <div class="menu-name">Alloco (Fried Plantains)</div>
+        <div class="menu-desc">Ripe plantains fried to golden brown perfection with a sweet, caramelized flavor. A classic West African side — pair with jollof rice for the full experience.</div>
+        <div class="menu-footer"><div class="menu-price">$6.99</div><div class="menu-tags"><span class="menu-tag">Vegan</span><span class="menu-tag">GF</span></div></div>
+      </div>
+    </div>
+
+    <div class="menu-card a-up d1">
+      <img class="menu-img" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bon Bon Sampler" loading="lazy"/>
+      <div class="menu-badge">🎯 Must Try</div>
+      <div class="menu-body">
+        <div class="menu-name">Bon Bon Sampler</div>
+        <div class="menu-desc">The ultimate tasting board: beef brochette, chicken brochette, lamb chop, chicken wings, rice, salad &amp; plantains. Bon Bon Juice included.</div>
+        <div class="menu-footer"><div class="menu-price">See Menu</div><div class="menu-tags"><span class="menu-tag">For Two</span><span class="menu-tag">Best Value</span></div></div>
+      </div>
+    </div>
+
+    <div class="menu-card a-up d2">
+      <img class="menu-img" src="https://images.pexels.com/photos/4051749/pexels-photo-4051749.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bon Bon Juice" loading="lazy"/>
+      <div class="menu-badge">🥤 Signature Drink</div>
+      <div class="menu-body">
+        <div class="menu-name">Bon Bon Juice</div>
+        <div class="menu-desc">Refreshing hibiscus juice with pineapple and fresh mint — 20oz of pure delight. Guests say it's "dangerously good." Don't leave without one.</div>
+        <div class="menu-footer"><div class="menu-price">$6.99</div><div class="menu-tags"><span class="menu-tag">Vegan</span><span class="menu-tag">Hibiscus</span></div></div>
+      </div>
+    </div>
+
+    <div class="menu-card a-up d3">
+      <img class="menu-img" src="https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Chicken Sandwich" loading="lazy"/>
+      <div class="menu-body">
+        <div class="menu-name">Chicken Sandwich</div>
+        <div class="menu-desc">West African-seasoned chicken packed between fresh bread. Part of our Bon Bon Sandwiches lineup — bold flavor, simple, satisfying.</div>
+        <div class="menu-footer"><div class="menu-price">$15.00</div><div class="menu-tags"><span class="menu-tag">Halal</span><span class="menu-tag">Sandwich</span></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="experience">
+  <div class="section-wrap">
+    <div class="eyebrow a-fade"><div class="eyebrow-line"></div><span>Your Visit</span></div>
+    <div class="section-title a-clip">Simple as <em>1, 2, 3.</em></div>
+    <div class="steps-grid" style="margin-top:3rem;">
+      <div class="step-card a-up d1">
+        <div class="step-icon">📞</div>
+        <div class="step-num">01</div>
+        <div class="step-title">Call or Order Online</div>
+        <p class="step-desc">Call us at (630) 822-4086, order on DoorDash or Uber Eats, or just walk in. We're open Mon–Sat, 11AM–9PM at 908 Ogden Ave Unit A, Lisle, IL.</p>
+      </div>
+      <div class="step-card a-up d2">
+        <div class="step-icon">🍢</div>
+        <div class="step-num">02</div>
+        <div class="step-title">Watch It Cook Fresh</div>
+        <p class="step-desc">The owner cooks every order personally. Good food takes love and time — we promise it's always worth the wait. Fresh. Never frozen. Never rushed.</p>
+      </div>
+      <div class="step-card a-up d3">
+        <div class="step-icon">✨</div>
+        <div class="step-num">03</div>
+        <div class="step-title">Savor Every Bite</div>
+        <p class="step-desc">Dine in at one of our cozy tables or take it to go. Don't skip the Bon Bon Juice — guests say it's the best thing they've ever had. We'll see you again soon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="sig-section">
+  <div class="section-wrap">
+    <div class="eyebrow a-fade"><div class="eyebrow-line"></div><span>What We Serve</span></div>
+    <div class="section-title a-clip">Built for <em>every craving,</em><br>every visit.</div>
+    <div class="sig-grid" style="margin-top:3rem;">
+      <div class="sig-card a-up d1">
+        <span class="sig-num">01 / BROCHETTES</span>
+        <span class="sig-icon">🍢</span>
+        <div class="sig-name">Grilled Brochettes</div>
+        <p class="sig-desc">Our crown jewel. Beef and chicken skewers marinated in our rich signature sauce, grilled with fresh onions and tomatoes. Originally a French dish, perfected by Ivorian hands — and now the best kebabs in the Chicago suburbs.</p>
+        <div class="sig-tags"><span class="sig-tag">Beef</span><span class="sig-tag">Chicken</span><span class="sig-tag">Lamb Chops</span><span class="sig-tag">Halal</span></div>
+      </div>
+      <div class="sig-card a-up d2">
+        <span class="sig-num">02 / CHICKEN &amp; FISH</span>
+        <span class="sig-icon">🍗</span>
+        <div class="sig-name">Chicken &amp; Fish</div>
+        <p class="sig-desc">Crispy fried chicken wings with special seasoning — naked and bold, with optional spicy sauce. Fresh tilapia fried to crunchy perfection. All served with jollof rice, fries, or our vegan home salad.</p>
+        <div class="sig-tags"><span class="sig-tag">Wings 10pc</span><span class="sig-tag">Wings 20pc</span><span class="sig-tag">Tilapia</span><span class="sig-tag">Halal</span></div>
+      </div>
+      <div class="sig-card a-up d3">
+        <span class="sig-num">03 / SIDES &amp; DRINKS</span>
+        <span class="sig-icon">🌿</span>
+        <div class="sig-name">Sides &amp; Signature Drinks</div>
+        <p class="sig-desc">Alloco — golden fried plantains with a sweet caramelized bite. Vegan jollof rice. French fries. Home salad. And the legendary Bon Bon Juice: hibiscus, pineapple, fresh mint. People drive here just for this juice.</p>
+        <div class="sig-tags"><span class="sig-tag">Alloco</span><span class="sig-tag">Jollof Rice</span><span class="sig-tag">Bon Bon Juice</span><span class="sig-tag">Vegan</span></div>
+      </div>
+      <div class="sig-card a-up d4">
+        <span class="sig-num">04 / SANDWICHES &amp; SPECIALS</span>
+        <span class="sig-icon">🥪</span>
+        <div class="sig-name">Sandwiches &amp; Specials</div>
+        <p class="sig-desc">Bon Bon Sandwiches, Bon Bon Specials, and Bon Bon Voyages — our lineup of bold West African-inspired creations. Ask us what's fresh today. Gluten-free and vegan options available across the menu.</p>
+        <div class="sig-tags"><span class="sig-tag">Chicken Sandwich</span><span class="sig-tag">Daily Specials</span><span class="sig-tag">GF Options</span><span class="sig-tag">Vegan</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HALAL PROMISE -->
+<section class="guarantee-section">
+  <div class="guarantee-inner">
+    <div class="g-badge-wrap a-scale">
+      <div class="g-badge">
+        <div class="g-badge-ring"></div>
+        <div class="g-badge-ring2"></div>
+        <div class="g-badge-core">
+          <div class="g-badge-num">100%</div>
+          <div class="g-badge-text">Halal<br>Certified</div>
+        </div>
+      </div>
+    </div>
+    <div class="a-right">
+      <div class="eyebrow a-fade"><div class="eyebrow-line"></div><span>Our Promise</span></div>
+      <div class="g-title a-clip">Every dish.<br>Every time.<br><em>Halal.</em></div>
+      <p class="g-desc a-up">Le Bon Bon Grill is 100% Halal — no exceptions, no compromises. Every protein we serve meets strict Halal standards so you can dine with complete peace of mind. We also offer vegan and gluten-free options so everyone at the table is taken care of.</p>
+      <a href="tel:6308224086" class="btn-primary a-up d2"><span>📞 Call to Order</span><span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="section-wrap">
+    <div class="eyebrow a-fade"><div class="eyebrow-line"></div><span>What People Are Saying</span></div>
+    <div class="section-title a-clip">Lisle loves <em>Le Bon Bon.</em></div>
+    <div class="reviews-grid">
+      <div class="rcard a-up d1">
+        <div class="rcard-quote">"</div>
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">The sampler is everything. Beef brochette, chicken, lamb chop, wings, rice, salad, plantains — and a Bon Bon Juice I wished I had a gallon of. All the meat was tender and juicy. My favorite was the lamb chop.</p>
+        <div class="rcard-footer"><div class="rcard-av">J</div><div><div class="rcard-name">James K.</div><div class="rcard-type">Bon Bon Sampler · Lisle, IL</div></div></div>
+      </div>
+      <div class="rcard a-up d2">
+        <div class="rcard-quote">"</div>
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">The food, the vibe, the friendly staff — everything is amazing! The alloco goes so well with the fried rice. Their Bon Bon Juice is so good. The hibiscus, pineapple, and mint balanced perfectly. This place is a gem!</p>
+        <div class="rcard-footer"><div class="rcard-av">M</div><div><div class="rcard-name">Maya R.</div><div class="rcard-type">Alloco + Jollof Rice · Lisle, IL</div></div></div>
+      </div>
+      <div class="rcard a-up d3">
+        <div class="rcard-quote">"</div>
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">The tasty, bountiful food and unique minty Bon Bon Juice make this local spot a delightful discovery worth supporting. A hidden gem that brings the best of West Africa to the Chicago suburbs.</p>
+        <div class="rcard-footer"><div class="rcard-av">T</div><div><div class="rcard-name">Tobi A.</div><div class="rcard-type">Bon Bon Juice · Chicago area</div></div></div>
+      </div>
+      <div class="rcard a-up d1">
+        <div class="rcard-quote">"</div>
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">I had the beef brochette and fries to go and ate half before I even got to the hotel. The beef was flavorful and tender, fries were crispy. Friendly service. Definitely worth visiting if you're in the area.</p>
+        <div class="rcard-footer"><div class="rcard-av">D</div><div><div class="rcard-name">David H.</div><div class="rcard-type">Beef Brochette + Fries</div></div></div>
+      </div>
+      <div class="rcard a-up d2">
+        <div class="rcard-quote">"</div>
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">Amazing grilled tilapia — fried to perfection, crunchy yet soft and moist inside. The rice brought back memories. Great service, amazing spicy sauces. We'll be coming back regularly.</p>
+        <div class="rcard-footer"><div class="rcard-av">A</div><div><div class="rcard-name">Ama S.</div><div class="rcard-type">Grilled Tilapia · Lisle, IL</div></div></div>
+      </div>
+      <div class="rcard a-up d3">
+        <div class="rcard-quote">"</div>
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">Best vegan fries, salad, plantain, and chicken kabobs! My friend had the chicken wrap and I had the plantains. And the Bon Bon Juice was dangerously delightful. Can't wait to go back!</p>
+        <div class="rcard-footer"><div class="rcard-av">L</div><div><div class="rcard-name">Laura B.</div><div class="rcard-type">Alloco + Chicken Wrap</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+    <div>
+      <div class="eyebrow a-fade"><div class="eyebrow-line"></div><span>Questions</span></div>
+      <div class="section-title a-clip" style="margin-bottom:2.5rem;">Everything you<br><em>need to know.</em></div>
+      <div class="faq-list">
+        <div class="faq-item a-up d1">
+          <div class="faq-q">Where are you located? <span class="faq-icon">+</span></div>
+          <div class="faq-a">We're at 908 Ogden Ave, Unit A, Lisle, IL 60532 — close to the Lisle post office with ample free parking. Easy to find, easy to park.</div>
+        </div>
+        <div class="faq-item a-up d2">
+          <div class="faq-q">What are your hours? <span class="faq-icon">+</span></div>
+          <div class="faq-a">We're open Monday through Saturday, 11:00 AM – 9:00 PM. Closed Sundays. If you're placing a larger order, call ahead so we can have everything ready for you.</div>
+        </div>
+        <div class="faq-item a-up d3">
+          <div class="faq-q">Is all your food Halal? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Yes — 100% Halal, always. Every protein we serve meets strict Halal certification standards, no exceptions. We also have vegan and gluten-free options across our menu.</div>
+        </div>
+        <div class="faq-item a-up d4">
+          <div class="faq-q">Do you offer delivery? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Yes! We're on DoorDash and Uber Eats for delivery. You can also call (630) 822-4086 directly for takeout or curbside pickup at our Lisle location.</div>
+        </div>
+        <div class="faq-item a-up d5">
+          <div class="faq-q">What's the Bon Bon Sampler? <span class="faq-icon">+</span></div>
+          <div class="faq-a">It's our tasting board — 1 beef brochette, 1 chicken brochette, 1 lamb chop, chicken wings, rice, salad, and plantains. Bon Bon Juice is included. Perfect for first-timers or anyone who wants to try it all.</div>
+        </div>
+        <div class="faq-item a-up d6">
+          <div class="faq-q">Do you have vegan or gluten-free options? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Yes. Our alloco (fried plantains), vegan jollof rice, and home salad are all vegan-friendly. Ask us when you order about gluten-free accommodations — we're happy to help.</div>
+        </div>
+      </div>
+    </div>
+    <div class="a-right">
+      <div class="faq-visual-card">
+        <div class="fq-big">FAQ</div>
+        <div class="fq-title">Still have questions?</div>
+        <p class="fq-desc">We're happy to answer anything. Call, email, or stop by — we respond fast and we're always friendly.</p>
+        <div class="fq-contact">
+          <div class="fq-contact-item"><div class="fq-contact-icon">📞</div><span>(630) 822-4086</span></div>
+          <div class="fq-contact-item"><div class="fq-contact-icon">✉️</div><span>eat@lebonbongrill.net</span></div>
+          <div class="fq-contact-item"><div class="fq-contact-icon">🕐</div><span>Mon–Sat · 11AM–9PM · Sun Closed</span></div>
+          <div class="fq-contact-item"><div class="fq-contact-icon">📍</div><span>908 Ogden Ave Unit A, Lisle, IL 60532</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-orb"></div>
+  <div class="cta-inner">
+    <div class="cta-eyebrow a-fade">Ready to eat?</div>
+    <div class="cta-title a-clip">Taste West Africa<br><em>today.</em></div>
+    <p class="cta-sub a-up">Call or order online. Open Mon–Sat, 11AM–9PM. Dine in, takeout, or delivery. Lisle's best-kept secret — now you know.</p>
+    <div class="cta-btns a-up d2">
+      <a href="tel:6308224086" class="btn-primary"><span>📞 Call: (630) 822-4086</span><span>→</span></a>
+      <a href="mailto:eat@lebonbongrill.net" class="btn-ghost">✉️ Email Us</a>
+    </div>
+    <p class="cta-note a-fade d3">908 Ogden Ave Unit A, Lisle, IL 60532 · Mon–Sat 11AM–9PM · 100% Halal</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Le Bon Bon <span>Grill</span></div>
+  <div class="footer-links">
+    <a href="https://www.doordash.com/store/le-bon-bon-grill-lisle-29823426/" target="_blank">DoorDash</a>
+    <a href="https://www.ubereats.com/store/le-bonbon-grill/iy8VdxQHR0qiam7NQK19Ng" target="_blank">Uber Eats</a>
+    <a href="https://www.instagram.com/lebonbongrill/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/lebonbongrill/" target="_blank">Facebook</a>
+  </div>
+  <div class="footer-copy">© 2025 Le Bon Bon Grill · 908 Ogden Ave Unit A, Lisle, IL · (630) 822-4086</div>
+</footer>
+
+<script>
+var cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+var mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function anim(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})();
+document.querySelectorAll('a,button,.rcard,.step-card,.sig-card,.menu-card,.proof-item,.faq-q').forEach(function(el){
+  el.addEventListener('mouseenter',function(){cur.style.width='18px';cur.style.height='18px';ring.style.width='56px';ring.style.height='56px';cur.style.background='#f59e0b';});
+  el.addEventListener('mouseleave',function(){cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';cur.style.background='#38bdf8';});
+});
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);});
+document.getElementById('ham').addEventListener('click',function(){document.getElementById('mm').classList.toggle('open');});
+document.querySelectorAll('#mm a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('mm').classList.remove('open');});});
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
+});
+var items=['Beef Brochette','Chicken Brochette','Grilled Lamb Chops','Alloco Plantains','Fried Tilapia','Bon Bon Juice','Chicken Wings','Jollof Rice','Bon Bon Sampler','Chicken Sandwich','100% Halal','Ivorian Cuisine'];
+var t=document.getElementById('ticker');
+var all=[...items,...items,...items,...items];
+t.innerHTML=all.map(function(i){return'<span class="ticker-item">'+i+'<span class="ticker-dot"></span></span>';}).join('');
+document.querySelectorAll('.faq-a').forEach(function(a){a.style.display='none';});
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var a=q.nextElementSibling,icon=q.querySelector('.faq-icon'),open=a.style.display==='block';
+    document.querySelectorAll('.faq-a').forEach(function(x){x.style.display='none';});
+    document.querySelectorAll('.faq-icon').forEach(function(x){x.textContent='+';x.classList.remove('open');});
+    if(!open){a.style.display='block';icon.textContent='−';icon.classList.add('open');}
+  });
+});
+function initAnims(){
+  document.body.classList.add('animated');
+  var all=document.querySelectorAll('.a-up,.a-left,.a-right,.a-scale,.a-fade,.a-clip,.a-word');
+  all.forEach(function(el,i){setTimeout(function(){el.classList.add('in');},i*55);});
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');obs.unobserve(en.target);}});
+  },{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+  all.forEach(function(el){obs.observe(el);});
+}
+initAnims();setTimeout(initAnims,100);setTimeout(initAnims,500);
+document.addEventListener('DOMContentLoaded',initAnims);
+window.addEventListener('load',initAnims);
+</script>
+</body>
+</html>
