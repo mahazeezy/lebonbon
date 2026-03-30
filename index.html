@@ -495,13 +495,13 @@ nav.scrolled .hamburger span{background:var(--ink);}
 @media(max-width:768px){
   .hero-bg-img{
     background-size:95%;
-    background-position:center top 60px;
-    opacity:.85;
+    background-position:center top 55px;
+    opacity:1;
   }
 }
 @media(max-width:480px){
   .hero-bg-img{
-    background-size:100%;
+    background-size:105%;
     background-position:center top 55px;
   }
 }
@@ -525,13 +525,12 @@ nav.scrolled .hamburger span{background:var(--ink);}
 }
 @media(max-width:768px){
   .hero-overlay{
-    /* On mobile: cream at top for text, transparent bottom to show image */
     background:linear-gradient(
       180deg,
-      rgba(255,251,243,1) 0%,
-      rgba(255,251,243,.97) 38%,
-      rgba(255,251,243,.6) 58%,
-      rgba(255,251,243,0) 100%
+      rgba(255,251,243,.95) 0%,
+      rgba(255,251,243,.75) 22%,
+      rgba(255,251,243,.25) 42%,
+      rgba(255,251,243,0) 60%
     );
   }
 }
@@ -563,13 +562,13 @@ nav.scrolled .hamburger span{background:var(--ink);}
     min-height:100svh;
   }
   .hero-inner{
-    padding-top:52vw !important; /* push content below the image area */
+    padding-top:2.5rem !important; /* push content below the image area */
     padding-bottom:3rem;
   }
 }
 @media(max-width:480px){
   .hero-inner{
-    padding-top:60vw !important;
+    padding-top:2rem !important;
   }
 }
 
@@ -705,6 +704,20 @@ footer{background:var(--brown);border-color:rgba(232,93,4,.2);}
 .reveal.from-clip{clip-path:inset(0 100% 0 0);opacity:1;}
 .reveal.from-clip.visible{clip-path:inset(0 0% 0 0);}
 
+
+@media(max-width:768px){
+  /* Prevent horizontal slide animations from causing overflow on phones */
+  .reveal.from-left,
+  .reveal.from-right{
+    transform:translateY(50px);
+    opacity:0;
+  }
+  .reveal.from-left.visible,
+  .reveal.from-right.visible{
+    transform:none;
+    opacity:1;
+  }
+}
 </style>
 </head>
 <body>
